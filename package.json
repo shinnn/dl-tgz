@@ -28,7 +28,7 @@
     "observable"
   ],
   "dependencies": {
-    "dl-tar": "^0.1.0",
+    "dl-tar": "^0.2.0",
     "is-plain-obj": "^1.1.0",
     "zen-observable": "^0.4.0"
   },

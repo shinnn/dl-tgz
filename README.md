@@ -13,12 +13,12 @@ const dlTar = require('dl-tgz');
 const url = 'https://github.com/github/hub/releases/download/v2.2.9/hub-darwin-amd64-2.2.9.tgz';
 
 dlTar(url, 'my/dir').subscribe({
-  next({header, bytes}) {
-    if (bytes !== header.size) {
+  next({entry}) {
+    if (bytes !== entry.header.size) {
       return;
     }
 
-    console.log(`✓ ${header.name}`);
+    console.log(`✓ ${entry.header.name}`);
   },
   complete() {
     readdirSync('my/dir'); //=> [ 'LICENSE', 'README.md', 'bin', 'etc', ...]
@@ -62,7 +62,7 @@ const dlTar = require('dl-tgz');
 *options*: `Object`  
 Return: [`Observable`](https://github.com/tc39/proposal-observable#observable) ([zenparsing's implementation](https://github.com/zenparsing/zen-observable))
 
-It works just like [dl-tar](https://github.com/shinnn/dl-tar), except that [`tarTransform` option](https://github.com/shinnn/dl-tar#tartransform) defaults to a [`zlib.Gunzip`](https://nodejs.org/api/zlib.html#zlib_class_zlib_gunzip) stream and unchangeable.
+It works just like [dl-tar](https://github.com/shinnn/dl-tar), except that [`tarTransform` option](https://github.com/shinnn/dl-tar#tartransform) defaults to a [`zlib.Gunzip` stream](https://nodejs.org/api/zlib.html#zlib_class_zlib_gunzip) and unchangeable.
 
 ## License
 

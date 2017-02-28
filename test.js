@@ -25,18 +25,29 @@ const server = createServer((req, res) => {
   res.setHeader('content-encoding', 'gzip');
   tar.pipe(createGzip()).pipe(res);
 }).listen(3018, () => test('dlTgz()', async t => {
-  t.plan(9);
+  t.plan(11);
 
   await rmfr('tmp').catch(t.fail);
 
   dlTgz('http://localhost:3018/', 'tmp').subscribe({
-    next(progress) {
-      t.strictEqual(progress.bytes, 2, 'should send download progress to the subscription.');
+    next({entry, response}) {
+      t.strictEqual(entry.bytes, 2, 'should send download progress to the subscription.');
 
       t.strictEqual(
-        progress.header.name,
+        entry.header.name,
         'file.txt',
         'should send entry headers to the subscription.'
+      );
+
+      t.ok(
+        Number.isSafeInteger(response.bytes),
+        'should send total donwload bytes to the subscription.'
+      );
+
+      t.strictEqual(
+        response.headers['content-encoding'],
+        'gzip',
+        'should send response headers to the subscription.'
       );
     },
     async complete() {
