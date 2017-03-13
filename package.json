@@ -28,13 +28,13 @@
     "observable"
   ],
   "dependencies": {
-    "dl-tar": "^0.2.1",
+    "dl-tar": "^0.2.2",
     "is-plain-obj": "^1.1.0",
-    "zen-observable": "^0.4.0"
+    "zen-observable": "^0.5.0"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",
-    "eslint": "^3.16.1",
+    "eslint": "^3.17.1",
     "nyc": "^10.1.2",
     "read-utf8-file": "^1.0.0",
     "rmfr": "^1.0.2",
