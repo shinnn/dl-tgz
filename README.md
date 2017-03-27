@@ -8,17 +8,17 @@ A [Node.js](https://nodejs.org/) module to download and extract a [gzipped](http
 
 ```javascript
 const {readdirSync} = require('fs');
-const dlTar = require('dl-tgz');
+const dlTgz = require('.');
 
 const url = 'https://github.com/github/hub/releases/download/v2.2.9/hub-darwin-amd64-2.2.9.tgz';
 
-dlTar(url, 'my/dir').subscribe({
-  next({entry}) {
-    if (bytes !== entry.header.size) {
+dlTgz(url, 'my/dir').subscribe({
+  next({entry: {bytes, header}}) {
+    if (bytes !== header.size || !header.name) {
       return;
     }
 
-    console.log(`✓ ${entry.header.name}`);
+    console.log(`✓ ${header.name}`);
   },
   complete() {
     readdirSync('my/dir'); //=> [ 'LICENSE', 'README.md', 'bin', 'etc', ...]
@@ -29,12 +29,17 @@ dlTar(url, 'my/dir').subscribe({
 ```
 
 ```
+✓ bin/
 ✓ bin/hub
 ✓ README.md
 ✓ LICENSE
+✓ etc/
 ✓ etc/README.md
 ✓ etc/hub.bash_completion.sh
 ✓ etc/hub.zsh_completion
+✓ share/
+✓ share/man/
+✓ share/man/man1/
 ✓ share/man/man1/hub.1
 ✓ install
 
@@ -52,10 +57,10 @@ npm install dl-tgz
 ## API
 
 ```javascript
-const dlTar = require('dl-tgz');
+const dlTgz = require('dl-tgz');
 ```
 
-### dlTar(*tgzArchiveUrl*, *extractDir* [, *options*])
+### dlTgz(*tgzArchiveUrl*, *extractDir* [, *options*])
 
 *tgzArchiveUrl*: `String`  
 *extractDir*: `String` (a path where the archive will be extracted)  

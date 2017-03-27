@@ -31,23 +31,27 @@ const server = createServer((req, res) => {
 
   dlTgz('http://localhost:3018/', 'tmp').subscribe({
     next({entry, response}) {
+      if (entry.bytes === 0) {
+        t.ok(
+          Number.isSafeInteger(response.bytes),
+          'should send total donwload bytes to the subscription.'
+        );
+
+        t.strictEqual(
+          response.headers['content-encoding'],
+          'gzip',
+          'should send response headers to the subscription.'
+        );
+
+        return;
+      }
+
       t.strictEqual(entry.bytes, 2, 'should send download progress to the subscription.');
 
       t.strictEqual(
         entry.header.name,
         'file.txt',
         'should send entry headers to the subscription.'
-      );
-
-      t.ok(
-        Number.isSafeInteger(response.bytes),
-        'should send total donwload bytes to the subscription.'
-      );
-
-      t.strictEqual(
-        response.headers['content-encoding'],
-        'gzip',
-        'should send response headers to the subscription.'
       );
     },
     async complete() {
