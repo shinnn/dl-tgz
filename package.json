@@ -1,6 +1,6 @@
 {
   "name": "dl-tgz",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Download and extract a gzipped tar archive with the Observable API",
   "repository": "shinnn/dl-tgz",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
