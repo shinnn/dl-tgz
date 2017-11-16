@@ -1,6 +1,6 @@
 # dl-tgz
 
-[![NPM version](https://img.shields.io/npm/v/dl-tgz.svg)](https://www.npmjs.com/package/dl-tgz)
+[![npm version](https://img.shields.io/npm/v/dl-tgz.svg)](https://www.npmjs.com/package/dl-tgz)
 [![Build Status](https://travis-ci.org/shinnn/dl-tgz.svg?branch=master)](https://travis-ci.org/shinnn/dl-tgz)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/dl-tgz.svg)](https://coveralls.io/github/shinnn/dl-tgz?branch=master)
 
@@ -48,7 +48,7 @@ Completed.
 
 ## Installation
 
-[Use npm.](https://docs.npmjs.com/cli/install)
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
 ```
 npm install dl-tgz
@@ -62,8 +62,8 @@ const dlTgz = require('dl-tgz');
 
 ### dlTgz(*tgzArchiveUrl*, *extractDir* [, *options*])
 
-*tgzArchiveUrl*: `String`  
-*extractDir*: `String` (a path where the archive will be extracted)  
+*tgzArchiveUrl*: `string`  
+*extractDir*: `string` (a path where the archive will be extracted)  
 *options*: `Object`  
 Return: [`Observable`](https://github.com/tc39/proposal-observable#observable) ([zenparsing's implementation](https://github.com/zenparsing/zen-observable))
 
@@ -71,6 +71,4 @@ It works just like [dl-tar](https://github.com/shinnn/dl-tar), except that [`tar
 
 ## License
 
-Copyright (c) 2017 [Shinnosuke Watanabe](https://github.com/shinnn)
-
-Licensed under [the MIT License](./LICENSE).
+[ISC License](./LICENSE) © 2017 Shinnosuke Watanabe

@@ -1,7 +1,3 @@
-/*!
- * dl-tgz | MIT (c) Shinnosuke Watanabe
- * https://github.com/shinnn/dl-tgz
-*/
 'use strict';
 
 const createGunzip = require('zlib').createGunzip;
