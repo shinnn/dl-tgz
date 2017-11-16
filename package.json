@@ -28,18 +28,18 @@
     "observable"
   ],
   "dependencies": {
-    "dl-tar": "^0.5.0",
+    "dl-tar": "^0.5.2",
     "is-plain-obj": "^1.1.0",
-    "zen-observable": "^0.5.1"
+    "zen-observable": "^0.6.0"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^4.0.2",
-    "eslint": "^4.7.1",
-    "nyc": "^11.2.1",
+    "eslint": "^4.11.0",
+    "nyc": "^11.3.0",
     "read-utf8-file": "^1.0.1",
     "rmfr": "^1.0.3",
     "tape": "^4.8.0",
-    "tar-stream": "^1.5.4"
+    "tar-stream": "^1.5.5"
   },
   "eslintConfig": {
     "extends": "@shinnn/node"
