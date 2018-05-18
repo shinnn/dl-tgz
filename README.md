@@ -71,4 +71,4 @@ It works just like [dl-tar](https://github.com/shinnn/dl-tar), except that [`tar
 
 ## License
 
-[ISC License](./LICENSE) © 2017 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2017 - 2018 Shinnosuke Watanabe
