@@ -25,7 +25,7 @@ const server = createServer((req, res) => {
 	res.setHeader('content-encoding', 'gzip');
 	tar.pipe(createGzip()).pipe(res);
 }).listen(3018, () => test('dlTgz()', async t => {
-	t.plan(11);
+	t.plan(13);
 
 	await rmfr('tmp').catch(t.fail);
 
@@ -123,6 +123,24 @@ const server = createServer((req, res) => {
 			err.toString(),
 			'TypeError: Expected an object to specify `dl-tar` options, but got Set {}.',
 			'should fail when the third parameter takes a non-plain object.'
+		)
+	});
+
+	dlTgz().subscribe({
+		complete: fail,
+		error: err => t.equal(
+			err.toString(),
+			'RangeError: Expected 2 or 3 arguments (<string>, <string>[, <Object>]), but got no arguments.',
+			'should fail when it takes no argument.'
+		)
+	});
+
+	dlTgz('a', 'b', {}, {}).subscribe({
+		complete: fail,
+		error: err => t.equal(
+			err.toString(),
+			'RangeError: Expected 2 or 3 arguments (<string>, <string>[, <Object>]), but got 4 arguments.',
+			'should fail when it takes too many arguments.'
 		)
 	});
 }).on('end', () => server.close()));
