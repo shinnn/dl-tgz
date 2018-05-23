@@ -26,7 +26,7 @@ module.exports = function dlTgz(...args) {
 			});
 		}
 
-		return dlTar(url, dest, Object.assign({}, options, {tarTransform: createGunzip()}));
+		return dlTar(url, dest, {...options, tarTransform: createGunzip()});
 	}
 
 	return dlTar(url, dest, options || {tarTransform: createGunzip()});
