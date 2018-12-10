@@ -1,8 +1,7 @@
 # dl-tgz
 
 [![npm version](https://img.shields.io/npm/v/dl-tgz.svg)](https://www.npmjs.com/package/dl-tgz)
-[![Build Status](https://travis-ci.org/shinnn/dl-tgz.svg?branch=master)](https://travis-ci.org/shinnn/dl-tgz)
-[![Build status](https://ci.appveyor.com/api/projects/status/50fv3lhu4ucfsy3y/branch/master?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/dl-tgz/branch/master)
+[![Build Status](https://travis-ci.com/shinnn/dl-tgz.svg?branch=master)](https://travis-ci.com/shinnn/dl-tgz)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/dl-tgz.svg)](https://coveralls.io/github/shinnn/dl-tgz?branch=master)
 
 A [Node.js](https://nodejs.org/) module to download and extract a [gzipped](https://tools.ietf.org/html/rfc1952) [tar](https://www.gnu.org/software/tar/) archive with the [Observable](https://tc39.github.io/proposal-observable/) API
@@ -48,7 +47,7 @@ Completed.
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm]().
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install dl-tgz
